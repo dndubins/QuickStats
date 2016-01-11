@@ -1,0 +1,10 @@
+QuickStats	KEYWORD1
+average		KEYWORD2
+minimum		KEYWORD3
+maximum		KEYWORD4
+stdev		KEYWORD5
+stderror	KEYWORD6
+CV		KEYWORD7
+bubbleSort	KEYWORD8
+median		KEYWORD9
+mode		KEYWORD10
