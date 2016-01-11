@@ -21,17 +21,6 @@ float QuickStats::average(float samples[],int m)
   return total1/(float)m;
 }
 
-float QuickStats::stdev(float samples[],int m)
-{
-  float avg=0.0;
-  float total2=0.0;
-  avg=average(samples,m);
-  for(int i=0;i<m;i++){
-    total2 = total2 + pow(samples[i] - avg,2);
-  }
-  return sqrt(total2/((float)m-1));
-}
-
 float QuickStats::minimum(float samples[],int m)
 {
   float sorted[m];   //Define and initialize sorted array
@@ -50,6 +39,17 @@ float QuickStats::maximum(float samples[],int m)
   }
   bubbleSort(sorted,m);  // Sort the values
   return(sorted[m-1]);   // last element is the maximum
+}
+
+float QuickStats::stdev(float samples[],int m)
+{
+  float avg=0.0;
+  float total2=0.0;
+  avg=average(samples,m);
+  for(int i=0;i<m;i++){
+    total2 = total2 + pow(samples[i] - avg,2);
+  }
+  return sqrt(total2/((float)m-1.0));
 }
 
 float QuickStats::stderror(float samples[],int m) {
