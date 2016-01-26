@@ -26,8 +26,8 @@ void loop()
     delay(10);  // Change (or remove) this delay value to alter the sampling time span.
   }  
   smoothed=stats.median(measurements,NUMSAMPLES); // Median filter (choose which filter to use)
-  //return stats.average(measurements,NUMSAMPLES); // Mean filter 
-  //return stats.mode(measurements,NUMSAMPLES); // Mode filter 
+  //smoothed=stats.average(measurements,NUMSAMPLES); // Mean filter 
+  //smoothed=stats.mode(measurements,NUMSAMPLES); // Mode filter 
   
   smoothedCV=stats.CV(measurements,NUMSAMPLES); // CV of readings    
   Serial.print(smoothed,3);  // Print smoothed value to serial monitor
