@@ -21,6 +21,15 @@ float QuickStats::average(float samples[],int m)
   return total1/(float)m;
 }
 
+float QuickStats::g_average(float samples[],int m)
+{
+  float total1=0.0;
+  for(int i=0;i<m;i++){
+    total1=total1+log(samples[i]);
+  }
+  return exp(total1/(float)m);
+}
+
 float QuickStats::minimum(float samples[],int m)
 {
   float sorted[m];   //Define and initialize sorted array
@@ -85,6 +94,15 @@ void QuickStats::bubbleSort(float A[],int len) {
   } while(n>1);
 }
 
+float QuickStats::fabs(float sample) // calculate absolute value
+{ 
+  if(sample<0.f){
+    return -sample;
+  }else{
+    return sample;
+  }
+}
+
 float QuickStats::median(float samples[],int m) //calculate the median
 {
   //First bubble sort the values: https://en.wikipedia.org/wiki/Bubble_sort
@@ -109,7 +127,8 @@ float QuickStats::median(float samples[],int m) //calculate the median
   }
 }
 
-float QuickStats::mode(float samples[],int m) //calculate the mode. 
+float QuickStats::mode(float samples[],int m,float epsilon) //calculate the mode.
+//epsilon is the tolerance for two measurements to be equivalent.
 {
   //First bubble sort the values: https://en.wikipedia.org/wiki/Bubble_sort
   float sorted[m];   //Temporary array to sort values.
@@ -134,8 +153,8 @@ float QuickStats::mode(float samples[],int m) //calculate the mode.
   int p=0; // counter for # unique numbers
   int maxp=0;
   int maxidx=0;
-  for(int i=1;i<m;i++){
-    if(sorted[i]==sorted[i-1]){
+  for(int i=1;i<m;i++){ 
+    if(fabs(sorted[i]-sorted[i-1])<epsilon){
       uniquect[p]++;  //if same number again, add to count
       if(uniquect[p]>maxp){
         maxp=uniquect[p];

@@ -13,6 +13,8 @@ void setup()
   Serial.println("Descriptive Statistics");
   Serial.print("Average: ");
   Serial.println(stats.average(readings,numreadings));
+  Serial.print("Geometric mean: ");
+  Serial.println(stats.g_average(readings,numreadings));
   Serial.print("Minimum: ");
   Serial.println(stats.minimum(readings,numreadings));
   Serial.print("Maximum: ");
@@ -26,7 +28,7 @@ void setup()
   Serial.print("Median: ");
   Serial.println(stats.median(readings,numreadings));
   Serial.print("Mode: ");
-  Serial.println(stats.mode(readings,numreadings));
+  Serial.println(stats.mode(readings,numreadings,0.00001));
 }
  
 void loop()

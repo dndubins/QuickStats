@@ -4,10 +4,10 @@
 
 byte sensorPin = A1;              // declaring the analog input to be Pin A1 of Arduino board.
 int v = 0;                        // variable to store analog reading
-int NUMSAMPLES=100;               // Number of samples to take for data smoothing 
-float measurements[100];          // Variable for holding raw measurements
-float smoothed;                   // Variable for holding filtered measurement
-float smoothedCV;                  // Variable for holding CV of measurements
+int NUMSAMPLES=100;               // number of samples to take for data smoothing 
+float measurements[100];          // variable for holding raw measurements
+float smoothed;                   // variable for holding filtered measurement
+float smoothedCV;                 // variable for holding CV of measurements
 
 QuickStats stats; //initialize an instance of this class
 
@@ -27,7 +27,8 @@ void loop()
   }  
   smoothed=stats.median(measurements,NUMSAMPLES); // Median filter (choose which filter to use)
   //smoothed=stats.average(measurements,NUMSAMPLES); // Mean filter 
-  //smoothed=stats.mode(measurements,NUMSAMPLES); // Mode filter 
+  //smoothed=stats.g_average(measurements,NUMSAMPLES); // Geometric mean filter 
+  //smoothed=stats.mode(measurements,NUMSAMPLES,0.00001); // Mode filter, epsilon=0.00001 (tolerance for two measurements being equivalent)
   
   smoothedCV=stats.CV(measurements,NUMSAMPLES); // CV of readings    
   Serial.print(smoothed,3);  // Print smoothed value to serial monitor
