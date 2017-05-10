@@ -22,7 +22,7 @@ void loop()
   //Collect the data points:
   for(int i=0;i<NUMSAMPLES;i++){
     v=analogRead(sensorPin);
-    measurements[i]=(5.0*(float)v/1024.0); // convert to volts
+    measurements[i]=(5.0*(float)v/1023.0); // convert to volts
     delay(10);  // Change (or remove) this delay value to alter the sampling time span.
   }  
   smoothed=stats.median(measurements,NUMSAMPLES); // Median filter (choose which filter to use)
