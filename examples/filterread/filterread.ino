@@ -4,9 +4,9 @@
 
 #include "QuickStats.h"
 
-#define NUMSAMPLES 100            // number of measurements to make per data point
-byte sensorPin = A1;              // declaring the analog input to be Pin A1 of Arduino board.
-float v = 0;                        // variable to store analog reading
+#define NUMSAMPLES 100 // number of measurements to make per data point
+byte sensorPin = A1;   // declaring the analog input to be Pin A1 of Arduino board.
+float v = 0.0;  // variable to store analog reading
 
 QuickStats stats; //initialize an instance of this class
 
@@ -41,7 +41,9 @@ float getMes(int samples) { // routine that takes #samples, filters out NaN valu
       mData[oCount]=mData[i]; // overwrite original array with filtered data
       oCount++;
     }
-  }  
+  }
+  //uncomment to see how much filtering is going on, and how the average was affected:
+  //Serial.println("Avg: "+(String)avg+" SD: "+(String)sd+"cCount: "+(String)cCount+" oCount: "+(String)oCount);
   if(sd==0){
     return avg; // protects against a zero standard deviation
   } else {
