@@ -42,8 +42,6 @@ float getMes(int samples) { // routine that takes #samples, filters out NaN valu
       oCount++;
     }
   }  
-  Serial.println("Avg: "+(String)avg+" SD: "+(String)sd+"cCount: "+(String)cCount+" oCount: "+(String)oCount);
-  //return stats.median(mData,oCount); // median filter (choose which filter to use)
   if(sd==0){
     return avg; // protects against a zero standard deviation
   } else {
