@@ -33,7 +33,7 @@ void loop()
     Serial.print(", ");
     Serial.print(stats.average(readings,NUMREADINGS));
     Serial.print(", ");
-    Serial.println(stats.slope(times,readings,NUMREADINGS));
+    Serial.println(stats.slope(times,readings,NUMREADINGS),5);
   }
   delay(50);
 }
