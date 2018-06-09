@@ -199,3 +199,21 @@ float QuickStats::intercept(float x[],float samples[],int m)  //calculate the in
   return yavg-(beta*xavg);
 }
 
+void QuickStats::filternan(float samples[],int &m)  //removes nan values and returns size of filtered matrix (destructive)
+{
+  int duds=0; //keep track of #nans
+  int nums=0; //keep track of numbers
+  float filtered[m];
+  for(int i=0;i<m;i++){
+    if(isnan(samples[i])||isinf(samples[i])){
+      duds++; // found a nan
+    }else{
+      filtered[nums]=samples[i];
+      nums++;  // found a number
+    }
+  }
+  for(int i=0;i<nums;i++){
+    samples[i]=filtered[i]; //overwrite sample matrix with filtered matrix 
+  }
+  m=nums; //overwrite matrix size
+}

@@ -11,3 +11,4 @@ median		KEYWORD10
 mode		KEYWORD11
 slope		KEYWORD12
 intercept	KEYWORD13
+filternan	KEYWORD14
