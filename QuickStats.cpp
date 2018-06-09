@@ -2,7 +2,7 @@
  *  Created by David Dubins, January 10th, 2016.
  *  Released into the public domain.
  *  Requires Arduino 1.6.6 or greater.
- *  http://pb435.pbworks/com
+ *  http://pb860.pbworks.com
  */
 
 #include "Arduino.h"
