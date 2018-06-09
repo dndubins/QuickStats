@@ -61,7 +61,8 @@ float QuickStats::stdev(float samples[],int m)
   return sqrt(total2/((float)m-1.0));
 }
 
-float QuickStats::stderror(float samples[],int m) {
+float QuickStats::stderror(float samples[],int m)
+{
   float temp1=0.0;
   temp1=stdev(samples,m);
   return (temp1/sqrt((float)m));
@@ -76,7 +77,8 @@ float QuickStats::CV(float samples[],int m)  //Coefficient of variation (%RSD, o
   return 100.0*sd/avg;
 }
 
-void QuickStats::bubbleSort(float A[],int len) {
+void QuickStats::bubbleSort(float A[],int len)
+{
   unsigned long newn;
   unsigned long n=len;
   float temp=0.0;
@@ -174,5 +176,26 @@ float QuickStats::mode(float samples[],int m,float epsilon) //calculate the mode
   } else {
     return 0.0; //If there is no mode, return a zero.
   }
+}
+
+float QuickStats::slope(float x[],float samples[],int m)  //calculate the slope (dsamples/dx)
+{
+  float xavg=average(x,m);
+  float yavg=average(samples,m);
+  float numerator = 0.0;
+  float denominator = 0.0;
+  for(int i=0;i<m;i++){
+    numerator = numerator + (x[i]-xavg)*(samples[i]-yavg);
+    denominator = denominator + ((x[i]-xavg)*(x[i]-xavg));
+  }
+  return numerator/denominator;  
+}
+
+float QuickStats::intercept(float x[],float samples[],int m)  //calculate the intercept (dsamples/dx)
+{
+  float xavg=average(x,m);
+  float yavg=average(samples,m);
+  float beta=slope(x,samples,m);
+  return yavg-(beta*xavg);
 }
 

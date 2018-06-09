@@ -24,6 +24,8 @@ class QuickStats {
     float fabs(float sample);
     float median(float samples[],int m);
     float mode(float samples[],int m,float epsilon);
+    float slope(float x[],float samples[],int m);
+    float intercept(float x[],float samples[],int m);
 };
 
 #endif
