@@ -185,8 +185,10 @@ float QuickStats::slope(float x[],float samples[],int m)  //calculate the slope 
   float numerator = 0.0;
   float denominator = 0.0;
   for(int i=0;i<m;i++){
-    numerator = numerator + (x[i]-xavg)*(samples[i]-yavg);
-    denominator = denominator + ((x[i]-xavg)*(x[i]-xavg));
+    if(x[i]-xavg!=0.0){ // protect against dividing by zero
+      numerator = numerator + (x[i]-xavg)*(samples[i]-yavg);
+      denominator = denominator + ((x[i]-xavg)*(x[i]-xavg));
+    }
   }
   return numerator/denominator;  
 }
