@@ -9,17 +9,18 @@ A bubble sort algorithm is also contained in this library which was necessary to
 
 The functions available in the library include:
 
- average(samples[],m);     // the average of elements in samples[m]
- g_average(samples[],m);   // the geometric mean of elements in samples[m]
- minimum(samples[],m);     // the minimum value in samples[m]
- maximum(samples[],m);     // the maximum value in samples[m]
- stdev(samples[],m);       // the sample standard deviation of elements in samples[m]
- stderror(samples[],m);    // the standard error of elements in samples[m] 
- CV(samples[],m);          // the coefficient of variation in samples[m] in percent
- bubbleSort(samples[],m);  // sorting algorithm to arrange the elements in samples[m]
- fabs(sample);             // absolute value of a float, used in mode()
- median(samples[],m);       // the median of elements in samples[m]
- mode(samples[],m,epsilon); // the mode of elements in samples[m] (returns 0 if no mode)
- slope(x[],samples[],m);	   // slope of linear regression dsamples/dx
- intercept(x[],samples[],m);// intercept of linear regression dsamples/dx
+ average(samples[],m);     // the average of elements in samples[m]\
+ g_average(samples[],m);   // the geometric mean of elements in samples[m]\
+ minimum(samples[],m);     // the minimum value in samples[m]\
+ maximum(samples[],m);     // the maximum value in samples[m]\
+ stdev(samples[],m);       // the sample standard deviation of elements in samples[m]\
+ stderror(samples[],m);    // the standard error of elements in samples[m]\
+ CV(samples[],m);          // the coefficient of variation in samples[m] in percent\
+ bubbleSort(samples[],m);  // sorting algorithm to arrange the elements in samples[m]\
+ fabs(sample);             // absolute value of a float, used in mode()\
+ median(samples[],m);       // the median of elements in samples[m]\
+ mode(samples[],m,epsilon); // the mode of elements in samples[m] (returns 0 if no mode)\
+ slope(x[],samples[],m);	   // slope of linear regression dsamples/dx\
+ intercept(x[],samples[],m);// intercept of linear regression dsamples/dx\
  filternan(float samples[],int &m) // filter nan and inf values out of a 1-dimensional array (destructive void function)
+ 
