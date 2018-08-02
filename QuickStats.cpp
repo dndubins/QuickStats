@@ -156,7 +156,7 @@ float QuickStats::mode(float samples[],int m,float epsilon) //calculate the mode
   int maxp=0;
   int maxidx=0;
   for(int i=1;i<m;i++){ 
-    if(fabs(sorted[i]-sorted[i-1])<epsilon){
+    if(fabs(sorted[i]-sorted[p])<epsilon){
       uniquect[p]++;  //if same number again, add to count
       if(uniquect[p]>maxp){
         maxp=uniquect[p];
@@ -168,9 +168,12 @@ float QuickStats::mode(float samples[],int m,float epsilon) //calculate the mode
       uniquect[p]=1;
     }
   }
-  /*for(int i=0;i<p+1;i++){
-    Serial.println("Num: " + (String)unique[i] +"   Count: " + (String)uniquect[i]);
-  }*/  
+  /*for(int i=0;i<p+1;i++){ //uncomment this section for debugging
+    Serial.print("Num: "); 
+    Serial.print(unique[i],4);
+    Serial.print(" Count: "); 
+    Serial.println(uniquect[i]);
+  }*/ 
   if (maxp>1) {    
     return unique[maxidx]; //If there is more than one mode, return the lowest one.
   } else {
@@ -218,4 +221,12 @@ void QuickStats::filternan(float samples[],int &m)  //removes nan values and ret
     samples[i]=filtered[i]; //overwrite sample matrix with filtered matrix 
   }
   m=nums; //overwrite matrix size
+}
+
+void QuickStats::f_round(float samples[], int m, int p)  //round float variable to a given # decimals, p
+{
+  float precision=pow(10.0,p);
+  for(int i=0;i<m;i++){
+    samples[i]=round(samples[i]*precision)/precision;
+  }
 }

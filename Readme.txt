@@ -24,6 +24,7 @@ mode(samples[],m,epsilon); // the mode of elements in samples[m]. This function 
 slope(x[],samples[],m);	   // slope of linear regression dsamples/dx
 intercept(x[],samples[],m);// intercept of linear regression dsamples/dx
 filternan(samples[],m);    // filter nan and inf values out of a 1-dimensional array (destructive void function)
+f_round(samples[],m,p);    // overwrites samples[m] with values rounded to p decimals
 
 To use the library, copy the download to the Library directory.
  

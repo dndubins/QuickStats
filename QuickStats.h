@@ -27,6 +27,7 @@ class QuickStats {
     float slope(float x[],float samples[],int m);
     float intercept(float x[],float samples[],int m);
     void filternan(float samples[],int &m);
+    void f_round(float samples[], int m, int p);
 };
 
 #endif
