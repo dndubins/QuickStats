@@ -26,7 +26,7 @@ float QuickStats::g_average(float samples[],int m)
 {
   float total1=0.0;
   for(int i=0;i<m;i++){
-    avg1+=(log(samples[i]-avg1)/(i+1); // iterative geometric mean calculated here
+    avg1+=(log(samples[i])-avg1)/(i+1); // iterative geometric mean calculated here
     //total1=total1+log(samples[i]);
   }
   return exp(avg1);
