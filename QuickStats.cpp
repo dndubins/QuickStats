@@ -1,5 +1,6 @@
 /* QuickStats.cpp - Library for quick descriptive statistics of an array samples[] of size m
  *  Created by David Dubins, January 10th, 2016.
+ *  Last updated: December 2, 2020.
  *  Released into the public domain.
  *  Requires Arduino 1.6.6 or greater.
  *  http://pb860.pbworks.com
@@ -14,20 +15,22 @@ QuickStats::~QuickStats(){/*nothing to destruct*/}
 
 float QuickStats::average(float samples[],int m)
 {
-  float total1=0.0;
-  for(int i=0;i<m;i++){
-    total1=total1+samples[i];
+  float avg1=0.0;
+  for(int i=0;i<m;i++){ 
+    avg1+=(samples[i]-avg1)/(i+1); // iterative mean calculated here
   }
-  return total1/(float)m;
+  return avg1;
 }
 
 float QuickStats::g_average(float samples[],int m)
 {
   float total1=0.0;
   for(int i=0;i<m;i++){
-    total1=total1+log(samples[i]);
+    avg1+=(log(samples[i]-avg1)/(i+1); // iterative geometric mean calculated here
+    //total1=total1+log(samples[i]);
   }
-  return exp(total1/(float)m);
+  return exp(avg1);
+  //return exp(total1/(float)m);
 }
 
 float QuickStats::minimum(float samples[],int m)
