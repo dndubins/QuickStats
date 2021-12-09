@@ -3,7 +3,7 @@
  *  Last updated: December 2, 2020.
  *  Released into the public domain.
  *  Requires Arduino 1.6.6 or greater.
- *  http://pb860.pbworks.com
+ *  https://github.com/dndubins/QuickStats/
  */
 
 #include "Arduino.h"
@@ -203,6 +203,32 @@ float QuickStats::intercept(float x[],float samples[],int m)  //calculate the in
   float yavg=average(samples,m);
   float beta=slope(x,samples,m);
   return yavg-(beta*xavg);
+}
+
+float QuickStats::rsq(float x[],float samples[],int m)  //calculate the rsq value
+{
+  float yavg=average(samples,m); // get average of samples
+  float s=slope(x,samples,m);    // get slope (dsamples/dx)
+  float b=intercept(x,samples,m); // get intercept
+  float fi[m];                    // to hold model values of samples
+  float j[m];                     // to hold (y-fi)^2 values
+  float k[m];                     // to hold (y=yavg)^2 values
+  float SSres=0.0;                // to hold sum of squares of residuals
+  float SStot=0.0;                // to hold total sum of squares
+  for(int i=0;i<m;i++){
+    fi[i]=s*x[i]+b;
+    j[m]=pow(samples[i]-fi[i],2);
+    SSres+=j[m];
+    k[m]=pow(samples[i]-yavg,2);
+    SStot+=k[m];
+  }
+  return 1.0-(SSres/SStot);         // calculate and return the rsq value
+}
+
+float QuickStats:rsq_adj(float x[],float samples[],int m)  //calculate the adjusted rsq value
+{
+  float a=rsq(x,samples,m);
+  return 1.0-(1.0-a)*(m-1.0)/(m-2.0);  // calculate and return the adjusted rsq value
 }
 
 void QuickStats::filternan(float samples[],int &m)  //removes nan values and returns size of filtered matrix (destructive)
