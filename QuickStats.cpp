@@ -225,7 +225,7 @@ float QuickStats::rsq(float x[],float samples[],int m)  //calculate the rsq valu
   return 1.0-(SSres/SStot);         // calculate and return the rsq value
 }
 
-float QuickStats:rsq_adj(float x[],float samples[],int m)  //calculate the adjusted rsq value
+float QuickStats::rsq_adj(float x[],float samples[],int m)  //calculate the adjusted rsq value
 {
   float a=rsq(x,samples,m);
   return 1.0-(1.0-a)*(m-1.0)/(m-2.0);  // calculate and return the adjusted rsq value
