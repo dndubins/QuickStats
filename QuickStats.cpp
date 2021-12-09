@@ -151,20 +151,20 @@ float QuickStats::mode(float samples[],int m,float epsilon) //calculate the mode
     Serial.println(sorted[i]);
   }*/
   // Now count the number of times each unique number appears in the sorted array.
-  unique[0]=sorted[0];
-  uniquect[0]=1;
-  int p=0; // counter for # unique numbers
+  unique[0]=sorted[0]; // first unique number is the first number
+  uniquect[0]=1;       // first count is 1
+  int p=0; // array index for last unique number
   int maxp=0;
   int maxidx=0;
-  for(int i=1;i<m;i++){ 
-    if(fabs(sorted[i]-sorted[p])<epsilon){
-      uniquect[p]++;  //if same number again, add to count
-      if(uniquect[p]>maxp){
-        maxp=uniquect[p];
-        maxidx=p;      
+  for(int i=1;i<m;i++){
+    if(fabs(sorted[i]-unique[p])<epsilon){ // if number same within tolerance
+      uniquect[p]++;         // add to count of this number
+      if(uniquect[p]>maxp){  // if this exceeds the largest frequency
+        maxp=uniquect[p];    // record this number, it's the new mode
+        maxidx=p;            // store the index of the number with the highest freq
       }
     } else {
-      p++;
+      p++;  // found a new unique number      
       unique[p]=sorted[i];
       uniquect[p]=1;
     }
@@ -174,7 +174,7 @@ float QuickStats::mode(float samples[],int m,float epsilon) //calculate the mode
     Serial.print(unique[i],4);
     Serial.print(" Count: "); 
     Serial.println(uniquect[i]);
-  }*/ 
+  }*/
   if (maxp>1) {    
     return unique[maxidx]; //If there is more than one mode, return the lowest one.
   } else {
