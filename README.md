@@ -3,7 +3,7 @@ Descriptive statistics for Arduino float arrays
 
 I developed this library to help quickly accomplish median and mode filtering when collecting sensor data. Functions in this library operate on an array of float variables, of dimension "m", and return the corresponding statistic. This library was originally created for a data smoothing strategy for float variables. Using a median or mode filtering strategy (opposed to mean filtering) is better at removing spikes from aberrant readings. The other functions (stdev, CV, etc.) were included for fun.
 
-I have found this library useful, and so I've added to it over time. For instance, I was annoyed with the occasional nan value I was receiving from thermocouple readings, so I added the filternan() function, which also removes inf values. I needed a derivative for a sliding average reading, so I added slope() and intercept() functions.
+I have found this library useful, and so I've added to it over time. For instance, I was annoyed with the occasional nan value I was receiving from thermocouple readings, so I added the filternan() function, which also removes inf values. I needed a derivative for a sliding average reading, so I added slope() and intercept() functions. In case I ever need them, I also added rsq and adjusted rsq. This could be handy in baseline fitting routines.
 
 A bubble sort algorithm is also contained in this library which was necessary to calculate median and mode.
 
