@@ -17,6 +17,10 @@ void setup()
   Serial.println(stats.slope(times,readings,numreadings));
   Serial.print("Intercept: ");
   Serial.println(stats.intercept(times,readings,numreadings));
+  Serial.print("r^2: ");
+  Serial.println(stats.rsq(times,readings,numreadings),4);
+  Serial.print("Adjusted r^2: ");
+  Serial.println(stats.rsq_adj(times,readings,numreadings),4);
 }
  
 void loop()
