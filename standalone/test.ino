@@ -1,4 +1,6 @@
-// Example program for use with QuickStats.h standalone library
+// Example sketch for use with QuickStats.h standalone library
+// Author: D. Dubins
+// Date: 08-Dec-21
 // Copy QuickStats.h into the same directory as this sketch.
 // The program results should be as follows:
 /*
