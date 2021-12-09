@@ -25,5 +25,5 @@ The functions available in the library include:
  rsq(x[],samples[],m)        // rsq of regression\
  rsq_adj(x[],samples[],m)    // adjusted rsq of regression\
  filternan(samples[],m);     // filter nan and inf values out of a 1-dimensional array (destructive void function)\
- f_round(samples[],m,p);     // round samples[m] to p decimal places\
+ f_round(samples[],m,p);     // round samples[m] to p decimal places
  
