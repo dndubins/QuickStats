@@ -2,6 +2,7 @@
  *  assuming a normal distribution.
  *  Created by David Dubins, January 10th, 2016.
  *  Last edited 08-Dec-21.
+ *  https://github.com/dndubins/QuickStats/
  *  Released into the public domain.
  */
 
