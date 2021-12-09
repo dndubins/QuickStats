@@ -11,5 +11,7 @@ median	KEYWORD2
 mode	KEYWORD2
 slope	KEYWORD2
 intercept	KEYWORD2
+rsq KEYWORD2
+rsq_adj KEYWORD2
 filternan	KEYWORD2
 f_round	KEYWORD2
