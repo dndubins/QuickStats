@@ -1,5 +1,12 @@
 // Example program for use with QuickStats.h 
 // Simple linear regression (y=ax+b)
+/* Expected Results:
+Linear Regression
+Slope: 8.12
+Intercept: 1.85
+r^2: 0.8972
+Adjusted r^2: 0.8629
+*/
 
 #include "QuickStats.h"
  
