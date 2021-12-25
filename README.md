@@ -1,4 +1,4 @@
-# QuickStats
+# QuickStats version 1.2.2
 Descriptive statistics for Arduino float arrays
 
 I developed this library to help quickly accomplish median and mode filtering when collecting sensor data. Functions in this library operate on an array of float variables, of dimension "m", and return the corresponding statistic. This library was originally created for a data smoothing strategy for float variables. Using a median or mode filtering strategy (opposed to mean filtering) is better at removing spikes from aberrant readings. The other functions (stdev, CV, etc.) were included for fun.
