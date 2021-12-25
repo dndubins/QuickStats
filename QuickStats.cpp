@@ -124,7 +124,7 @@ float QuickStats::median(float samples[],int m) //calculate the median
     Serial.println(sorted[i]);
   }*/
   if (bitRead(m,0)==1) {  //If the last bit of a number is 1, it's odd. This is equivalent to "TRUE". Also use if m%2!=0.
-    return sorted[m/2]; //If the number of data points is odd, return middle number.
+    return sorted[m/2];   //If the number of data points is odd, return middle number.
   } else {    
     return (sorted[(m/2)-1]+sorted[m/2])/2; //If the number of data points is even, return avg of the middle two numbers.
   }
@@ -137,7 +137,7 @@ float QuickStats::mode(float samples[],int m,float epsilon) //calculate the mode
   float sorted[m];   //Temporary array to sort values.
   float temp=0;      //Temporary float for swapping elements
   float unique[m];   //Temporary array to store unique values
-  int uniquect[m]; //Temporary array to store unique counts
+  int uniquect[m];   //Temporary array to store unique counts
   /*Serial.println("Before:");
   for(int i=0;i<m;i++){
     Serial.println(samples[i]);
