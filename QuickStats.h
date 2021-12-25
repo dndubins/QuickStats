@@ -1,7 +1,7 @@
-/*  QuickStats.h - Library for quick descriptive statistics of an array samples[] of size m,
+/*  QuickStats.h version 1.2.2 - Library for quick descriptive statistics of an array samples[] of size m,
  *  assuming a normal distribution.
  *  Created by David Dubins, January 10th, 2016.
- *  Last edited 08-Dec-21.
+ *  Last edited 25-Dec-21.
  *  https://github.com/dndubins/QuickStats/
  *  Released into the public domain.
  */
