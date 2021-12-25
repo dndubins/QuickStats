@@ -1,4 +1,4 @@
-/* QuickStats.cpp version 1.2.2 - Library for quick descriptive statistics of an array samples[] of size m
+/* QuickStats.cpp version 1.2.3 - Library for quick descriptive statistics of an array samples[] of size m
  *  Created by David Dubins, January 10th, 2016.
  *  Last updated: 25-Dec-21.
  *  Released into the public domain.
