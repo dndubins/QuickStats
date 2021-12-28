@@ -20,7 +20,7 @@ The functions available in the library include:
  fabs(sample);              // absolute value of a float, used in mode()\
  median(samples[],m);       // the median of elements in samples[m]\
  mode(samples[],m,epsilon); // the mode of elements in samples[m] (returns 0 if no mode)\
- gmdn(samples[],m,epsilon); // the geothmetic meandian of elements in samples[m]\
+ gmdn(samples[],m,epsilon); // the geothmetic meandian of elements in samples[m]. See https://xkcd.com/2435/ if you are unfamiliar with this function.\
  slope(x[],samples[],m);	   // slope of linear regression dsamples/dx\
  intercept(x[],samples[],m); // intercept of linear regression dsamples/dx\
  rsq(x[],samples[],m)        // rsq of regression\
