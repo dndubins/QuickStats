@@ -12,7 +12,7 @@ Standard Error: 0.67
 Coefficient of Variation (%): 55.23
 Median: 3.30
 Mode: 2.20
-GMDN: 3.33
+Geothmetic Meandian: 3.33
 */
 
 #include "QuickStats.h"
