@@ -25,10 +25,23 @@ void loop()
     measurements[i]=(5.0*(float)v/1023.0); // convert to volts
     delay(10);  // Change (or remove) this delay value to alter the sampling time span.
   }  
-  smoothed=stats.median(measurements,NUMSAMPLES); // Median filter (choose which filter to use)
-  //smoothed=stats.average(measurements,NUMSAMPLES); // Mean filter 
+
+  // Uncomment one of the following filters below for data smoothing.
+  
+  //If the data are well-behaved and normally distributed, uncomment:
+  smoothed=stats.average(measurements,NUMSAMPLES); // Mean filter 
+  
+  //If the data are log-normally distributed, uncomment:
   //smoothed=stats.g_average(measurements,NUMSAMPLES); // Geometric mean filter 
+  
+  //If there annoying spikes/outliers in the data, uncomment the median:
+  //smoothed=stats.median(measurements,NUMSAMPLES); // Median filter (choose which filter to use)
+  
+  //If there are repeated measurements in the data, and you would like the most frequently reported value:
   //smoothed=stats.mode(measurements,NUMSAMPLES,0.00001); // Mode filter, epsilon=0.00001 (tolerance for two measurements being equivalent)
+  
+  //If you aren't sure which to use, and don't mind the computational expense: (https://xkcd.com/2435/)
+  //smoothed=stats.gmdn(measurements,NUMSAMPLES,0.00001); // Geothmetic meandian filter, epsilon=0.00001 (tolerance for two measurements being equivalent)
   
   smoothedCV=stats.CV(measurements,NUMSAMPLES); // CV of readings    
   Serial.print(smoothed,3);  // Print smoothed value to serial monitor
