@@ -21,6 +21,8 @@ fabs(sample);              // absolute value of float
 median(samples[],m);       // the median of elements in samples[m]
 mode(samples[],m,epsilon); // the mode of elements in samples[m]. This function returns a zero if there is no mode.
                            // epsilon is the tolerance of accepting measurements as being equal.
+gmdn(samples[],m,epsilon); // the geothmetic meandian of elements in samples[m]. See: https://xkcd.com/2435/
+                           // epsilon is the tolerance of accepting measurements as being equal.                           
 slope(x[],samples[],m);	   // slope of linear regression dsamples/dx
 intercept(x[],samples[],m);// intercept of linear regression dsamples/dx
 filternan(samples[],m);    // filter nan and inf values out of a 1-dimensional array (destructive void function)
