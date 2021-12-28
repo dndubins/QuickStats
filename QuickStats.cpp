@@ -182,6 +182,26 @@ float QuickStats::mode(float samples[],int m,float epsilon) //calculate the mode
   }
 }
 
+void QuickStats::gmdn(float samples[], int m, float epsilon)  //geothmetic meandian (https://bebac.at/articles/A-Rant-About-Nice-Numbers.htm) 
+{                                                             //epsilon is tolerance of conversion (where mean, geometric mean, and median considered equal)
+  float c1={0.0, 0.0, 0.0);   // to hold mean, geometric mean, median
+  float c2={0.0, 0.0, 0.0);   // to hold mean, geometric mean, median
+  float delta=0.0;
+  c1[0]=average(samples,m);   // calculate the mean of the samples
+  c1[1]=g_average(samples,m); // calculate the geometric mean of the samples
+  c1[2]=median(samples,m);    // calculate the median of the samples
+  do(
+    c2[0]=average(c1,3);      // calculate the mean of the three (mean, geometric mean, median)
+    c2[1]=g_average(c1,3);    // calculate the geometric mean of the three (mean, geometric mean, median)
+    c2[2]=median(c1,3);       // calculate the median
+    delta=(c2[0]-c2[1])+(c2[0]-c2[2]); // calculate the difference between stats
+    for(int i=0;i<3;i++){     // write back c2 to c1
+      c1[i]=c2[i];
+    }  
+  )while(delta>epsilon); // did these numbers converge?
+  return c2[i]; // return converged value
+}
+            
 float QuickStats::slope(float x[],float samples[],int m)  //calculate the slope (dsamples/dx)
 {
   float xavg=average(x,m);
@@ -258,22 +278,3 @@ void QuickStats::f_round(float samples[], int m, int p)  //round float variable 
   }
 }
 
-void QuickStats::gmdn(float samples[], int m, float epsilon)  //geothmetic meandian (https://bebac.at/articles/A-Rant-About-Nice-Numbers.htm) 
-{                                                             //epsilon is tolerance of conversion (where mean, geometric mean, and median considered equal)
-  float c1={0.0, 0.0, 0.0);   // to hold mean, geometric mean, median
-  float c2={0.0, 0.0, 0.0);   // to hold mean, geometric mean, median
-  float delta=0.0;
-  c1[0]=average(samples,m);   // calculate the mean of the samples
-  c1[1]=g_average(samples,m); // calculate the geometric mean of the samples
-  c1[2]=median(samples,m);    // calculate the median of the samples
-  do(
-    c2[0]=average(c1,3);      // calculate the mean of the three (mean, geometric mean, median)
-    c2[1]=g_average(c1,3);    // calculate the geometric mean of the three (mean, geometric mean, median)
-    c2[2]=median(c1,3);       // calculate the median
-    delta=(c2[0]-c2[1])+(c2[0]-c2[2]); // calculate the difference between stats
-    for(int i=0;i<3;i++){     // write back c2 to c1
-      c1[i]=c2[i];
-    }  
-  )while(delta>epsilon); // did these numbers converge?
-  return c2[i]; // return converged value
-}
