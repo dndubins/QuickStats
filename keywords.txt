@@ -9,6 +9,7 @@ CV	KEYWORD2
 bubbleSort	KEYWORD2
 median	KEYWORD2
 mode	KEYWORD2
+gmdn	KEYWORD2
 slope	KEYWORD2
 intercept	KEYWORD2
 rsq	KEYWORD2
