@@ -12,6 +12,7 @@ Standard Error: 0.67
 Coefficient of Variation (%): 55.23
 Median: 3.30
 Mode: 2.20
+GMDN: 3.33
 */
 
 #include "QuickStats.h"
@@ -43,6 +44,8 @@ void setup()
   Serial.println(stats.median(readings,numreadings));
   Serial.print("Mode: ");
   Serial.println(stats.mode(readings,numreadings,0.00001));
+  Serial.print("GMDN: ");
+  Serial.println(stats.gmdn(readings,numreadings,0.00001));
 }
  
 void loop()
