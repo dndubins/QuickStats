@@ -44,7 +44,7 @@ void setup()
   Serial.println(stats.median(readings,numreadings));
   Serial.print("Mode: ");
   Serial.println(stats.mode(readings,numreadings,0.00001));
-  Serial.print("GMDN: ");
+  Serial.print("Geothmetic Meandian: ");
   Serial.println(stats.gmdn(readings,numreadings,0.00001));
 }
  
