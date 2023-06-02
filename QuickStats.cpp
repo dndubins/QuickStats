@@ -182,7 +182,7 @@ float QuickStats::mode(float samples[],int m,float epsilon) //calculate the mode
   }
 }
 
-float QuickStats::gmdn(float samples[], int m, float epsilon)  //geothmetic meandian (https://bebac.at/articles/A-Rant-About-Nice-Numbers.htm)
+float QuickStats::gmdn(float samples[], int m, float epsilon)  //geothmetic meandian (https://bebac.at/articles/A-Rant-About-Nice-Numbers.phtml)
 {                                                              //epsilon is tolerance of conversion (where mean, geometric mean, and median considered equal)
   float c1[3]={0.0, 0.0, 0.0};   // to hold mean, geometric mean, median
   float c2[3]={0.0, 0.0, 0.0};   // to hold mean, geometric mean, median
