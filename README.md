@@ -1,4 +1,4 @@
-# QuickStats version 1.2.4
+# QuickStats version 1.2.5
 Descriptive statistics for Arduino float arrays
 
 I developed this library to help quickly accomplish median and mode filtering when collecting sensor data. Functions in this library operate on an array of float variables, of dimension "m", and return the corresponding statistic. This library was originally created for a data smoothing strategy for float variables. Using a median or mode filtering strategy (opposed to mean filtering) is better at removing spikes from aberrant readings. The other functions (stdev, CV, etc.) were included for fun.
@@ -16,6 +16,7 @@ The functions available in the library include:
  stdev(samples[],m);        // the sample standard deviation of elements in samples[m]\
  stderror(samples[],m);     // the standard error of elements in samples[m]\
  CV(samples[],m);           // the coefficient of variation in samples[m] in percent\
+ SNR(samples[],m);          // the signal-to-noise ratio in samples[m] in percent\
  bubbleSort(samples[],m);   // sorting algorithm to arrange the elements in samples[m]\
  fabs(sample);              // absolute value of a float, used in mode()\
  median(samples[],m);       // the median of elements in samples[m]\
