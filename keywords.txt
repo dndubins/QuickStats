@@ -6,6 +6,7 @@ maximum	KEYWORD2
 stdev	KEYWORD2
 stderror	KEYWORD2
 CV	KEYWORD2
+SNR	KEYWORD2
 bubbleSort	KEYWORD2
 median	KEYWORD2
 mode	KEYWORD2
