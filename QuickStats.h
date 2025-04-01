@@ -1,7 +1,7 @@
 /*  QuickStats.h version 1.2.3 - Library for quick descriptive statistics of an array samples[] of size m,
  *  assuming a normal distribution.
  *  Created by David Dubins, January 10th, 2016.
- *  Last edited 25-Dec-21.
+ *  Last edited: 01-Apr-25.
  *  https://github.com/dndubins/QuickStats/
  *  Released into the public domain.
  */
@@ -22,6 +22,7 @@ class QuickStats {
     float stdev(float samples[],int m);
     float stderror(float samples[],int m);
     float CV(float samples[],int m);
+	  float SNR(float samples[],int m);
     void bubbleSort(float A[],int len);
     float fabs(float sample);
     float median(float samples[],int m);
