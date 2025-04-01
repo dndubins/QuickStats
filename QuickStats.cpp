@@ -1,6 +1,6 @@
 /* QuickStats.cpp version 1.2.3 - Library for quick descriptive statistics of an array samples[] of size m
  *  Created by David Dubins, January 10th, 2016.
- *  Last updated: 28-Dec-21.
+ *  Last updated: 01-Apr-25.
  *  Released into the public domain.
  *  Requires Arduino 1.6.6 or greater.
  *  https://github.com/dndubins/QuickStats/
@@ -76,6 +76,15 @@ float QuickStats::CV(float samples[],int m)  //Coefficient of variation (%RSD, o
   avg=average(samples,m);
   sd=stdev(samples,m);
   return 100.0*sd/avg;
+}
+
+float QuickStats::SNR(float samples[],int m)  //Signal-to-noise ratio
+{
+  float avg=0.0;
+  float sd=0.0;
+  avg=average(samples,m);
+  sd=stdev(samples,m);
+  return avg/sd;
 }
 
 void QuickStats::bubbleSort(float A[],int len)
