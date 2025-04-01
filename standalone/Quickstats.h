@@ -1,7 +1,7 @@
 /*************************************************************
  * Quick Statistics for Float Arrays, by David Dubins
  * 02-Dec-2020
- * Last Updated: 08-Dec-21
+ * Last Updated: 01-Apr-25
  * https://github.com/dndubins/QuickStats/edit/master/standalone/Quickstats.h
  * For a more functional version of this library, visit:
  * https://github.com/dndubins/QuickStats
@@ -90,6 +90,15 @@ float CV(float samples[],int m)  //Coefficient of variation (%RSD, or relative s
   avg=average(samples,m);
   sd=stdev(samples,m);
   return 100.0*sd/avg;
+}
+
+float SNR(float samples[],int m)  //Signal-to-noise ratio
+{
+  float avg=0.0;
+  float sd=0.0;
+  avg=average(samples,m);
+  sd=stdev(samples,m);
+  return avg/sd;
 }
 
 float fabs(float sample) // calculate absolute value
