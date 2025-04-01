@@ -1,6 +1,6 @@
 // Example program for use with QuickStats.h 
 // Author: D. Dubins
-// Date: 08-Dec-21
+// Date: 01-Apr-25
 /* Expected Results:
 Descriptive Statistics
 Average: 3.62
@@ -10,6 +10,7 @@ Maximum: 7.00
 Standard Deviation: 2.00
 Standard Error: 0.67
 Coefficient of Variation (%): 55.23
+SNR: 1.81
 Median: 3.30
 Mode: 2.20
 GMDN: 3.33
@@ -40,6 +41,8 @@ void setup()
   Serial.println(stats.stderror(readings,numreadings));
   Serial.print("Coefficient of Variation (%): ");
   Serial.println(stats.CV(readings,numreadings));
+  Serial.print("SNR: ");
+  Serial.println(stats.SNR(readings,numreadings));
   Serial.print("Median: ");
   Serial.println(stats.median(readings,numreadings));
   Serial.print("Mode: ");
