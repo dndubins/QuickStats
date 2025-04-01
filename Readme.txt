@@ -16,6 +16,7 @@ maximum(samples[],m);      // the maximum value in samples[m]
 stdev(samples[],m);        // the sample standard deviation of elements in samples[m]
 stderror(samples[],m);     // the standard error of elements in samples[m] calculated as stdev/sqrt(m)
 CV(samples[],m);           // the coefficient of variation in samples[m] in percent, calculated as 100*stdev/average
+SNR(samples[],m);          // the signal-to-noise ratio in samples[m], calculated as mean/standard deviation
 bubbleSort(samples[],m);   // a sorting algorithm to arrange the elements in samples[m] in ascending order
 fabs(sample);              // absolute value of float
 median(samples[],m);       // the median of elements in samples[m]
